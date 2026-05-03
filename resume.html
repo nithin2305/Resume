@@ -36,12 +36,13 @@
     /* ━━━ HEADER (page 1 only) ━━━━━━━━━━━━━━━ */
     #hdr {
       background: #1e293b;
-      padding: 32px 36px 26px;
+      padding: 36px 36px 30px;
+      text-align: center;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
-    #hdr h1   { font-size: 28px; font-weight: 700; color: #fff; letter-spacing: .4px; }
-    #hdr p    { font-size: 12.5px; color: #94a3b8; margin-top: 6px; }
+    #hdr h1   { font-size: 34px; font-weight: 700; color: #fff; letter-spacing: .6px; }
+    #hdr p    { font-size: 15px; color: #cbd5e1; margin-top: 8px; font-weight: 500; }
 
     /* ━━━ PAGE 2 HEADER STRIP ━━━━━━━━━━━━━━━━ */
     #hdr2 {
@@ -241,6 +242,32 @@
       print-color-adjust: exact;
     }
 
+    /* ━━━ RESEARCH PAPERS ━━━━━━━━━━━━━━━━━━━━ */
+    .paper-block { margin-bottom: 13px; }
+    .paper-block:last-child { margin-bottom: 0; }
+    .paper-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.45;
+    }
+    .paper-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 5px;
+      font-size: 10px;
+      font-weight: 600;
+      color: #2563eb;
+      text-decoration: none;
+      background: #dbeafe;
+      padding: 3px 11px;
+      border-radius: 4px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .paper-link:hover { background: #bfdbfe; }
+
     /* ━━━ PRINT BUTTON ━━━━━━━━━━━━━━━━━━━━━━━ */
     #print-btn {
       position: fixed;
@@ -282,6 +309,22 @@
 
       .body { display: flex !important; }
       .job  { page-break-inside: avoid; break-inside: avoid; }
+      .paper-block { page-break-inside: avoid; break-inside: avoid; }
+
+      /* Show full URLs in print so PDF links are clickable */
+      .paper-link {
+        background: none !important;
+        color: #2563eb !important;
+        padding: 0 !important;
+        font-size: 9px !important;
+      }
+      .paper-link::after {
+        content: " (" attr(href) ")";
+        font-size: 8px;
+        color: #64748b;
+        font-weight: 400;
+        word-break: break-all;
+      }
     }
   </style>
 </head>
@@ -298,7 +341,18 @@
 
     <div id="hdr">
       <h1>Nithin. A</h1>
-      <p>Senior Consultant – Core Banking &nbsp;|&nbsp; Java &nbsp;|&nbsp; Angular &nbsp;|&nbsp; Intellect Product Specialist</p>
+      <p>Core Banking System Specialist &amp; Full Stack Developer &nbsp;|&nbsp; Java &nbsp;|&nbsp; Angular</p>
+      <div style="display:flex; flex-wrap:wrap; gap:18px; margin-top:10px; justify-content:center;">
+        <a href="tel:+919962882439" style="display:flex; align-items:center; gap:6px; color:#e2e8f0; font-size:13px; font-weight:500; text-decoration:none;">
+          <span style="color:#60a5fa;">&#9990;</span> +91 99628 82439
+        </a>
+        <a href="mailto:Nithinmishra99@gmail.com" style="display:flex; align-items:center; gap:6px; color:#e2e8f0; font-size:13px; font-weight:500; text-decoration:none;">
+          <span style="color:#60a5fa;">&#9993;</span> Nithinmishra99@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/nithin-mishra/" target="_blank" style="display:flex; align-items:center; gap:6px; color:#e2e8f0; font-size:13px; font-weight:500; text-decoration:none;">
+          <span style="color:#60a5fa; font-weight:700; font-size:13px;">in</span> linkedin.com/in/nithin-mishra
+        </a>
+      </div>
     </div>
 
     <div class="body">
@@ -309,10 +363,10 @@
         <div class="section">
           <div class="sec-title">Professional Summary</div>
           <p class="summary-text">
-            Banking technology professional with 4.5+ years of experience across product development,
-            implementation, and client-side core banking operations. Proven expertise in Intellect Digital
-            Core (IDC) implementations, multi-country rollouts, and production support for financial
-            institutions. Skilled in Java (Spring Boot) and Angular ecosystems, with strong capabilities in
+            Banking technology professional with almost 5 years of experience across product development,
+            implementation, and client-side core banking operations. Proven expertise in Core Banking System
+            implementations, multi-country rollouts, production support for financial institutions, and
+            microservices architecture. Skilled in Java (Spring Boot) and Angular ecosystems, with strong capabilities in
             root cause analysis (RCA), vendor coordination, and translating business requirements into
             scalable technical solutions.
           </p>
@@ -327,12 +381,13 @@
               <div class="job-company">Credit Bank PNG</div>
               <div style="font-size:10px; color:#64748b; font-weight:600; white-space:nowrap;">Nov 2025 – Present</div>
             </div>
-            <div class="job-role">Technical Lead – Core Banking</div>
+            <div class="job-role">Core Banking System Specialist</div>
             <ul class="blist">
+              <li>Developed APIs for connecting with Visa AFT APIs, enabling seamless integration for automated fund transfers and enhancing transaction processing capabilities.</li>
               <li>Spearheaded root cause analysis (RCA) for critical production incidents in the core banking
-                environment, ensuring timely identification and resolution of system failures to minimise
+                microservices environment, ensuring timely identification and resolution of system failures to minimise
                 business disruption.</li>
-              <li>Managed end-to-end coordination with Intellect Design Arena for patch deployments and
+              <li>Managed end-to-end coordination with vendors for patch deployments and
                 hotfixes, tracking issue tickets and validating fixes in staging before promoting to
                 production.</li>
               <li>Translated complex business requirements from banking stakeholders into detailed Business
@@ -343,6 +398,10 @@
                 and rollback strategies to maintain system stability during core banking updates.</li>
               <li>Conducted regular IDC platform performance monitoring, identifying bottlenecks and tuning
                 configurations with the vendor to improve response times and uptime SLAs.</li>
+              <li>Architected Dead Letter Queue (DLQ) infrastructure for handling failed transactions, ensuring no payment
+                data loss and enabling systematic retry mechanisms for failed Visa and SWIFT payment operations.</li>
+              <li>Designed and implemented Saga pattern for distributed transaction management across microservices,
+                coordinating multi-step SWIFT payment workflows and ensuring data consistency in banking operations.</li>
             </ul>
           </div>
 
@@ -351,10 +410,10 @@
           <!-- Cognizant -->
           <div class="job">
             <div style="display:flex; justify-content:space-between; align-items:baseline;">
-              <div class="job-company">Cognizant</div>
+              <div class="job-company">Cognizant Technology Solutions</div>
               <div style="font-size:10px; color:#64748b; font-weight:600; white-space:nowrap;">Nov 2024 – Oct 2025</div>
             </div>
-            <div class="job-role">Full Stack Developer</div>
+            <div class="job-role">Software Engineer</div>
             <div class="client-row">
               <span class="client-label">Client</span>
               <span class="client-name">Nationwide Insurance, USA</span>
@@ -410,8 +469,8 @@
 
         <div class="section">
           <div class="sec-title">Education</div>
-          <div class="edu-deg">B.E. Computer Science</div>
-          <div class="edu-sub">Bachelor of Engineering</div>
+          <div class="edu-deg">Bachelor's of Engineering - Computer Science Engineering</div>
+          <div class="edu-sub">Saveetha School of Engineering | CGPA: 7.3</div>
         </div>
 
         <div class="section">
@@ -450,22 +509,22 @@
           <!-- Cognizant continued -->
           <div class="job">
             <div style="display:flex; justify-content:space-between; align-items:baseline;">
-              <div class="job-company">Cognizant</div>
+              <div class="job-company">Cognizant Technology Solutions</div>
               <div style="font-size:10px; color:#64748b; font-weight:600; white-space:nowrap;">Nov 2024 – Oct 2025</div>
             </div>
-            <div class="job-role">Full Stack Developer</div>
+            <div class="job-role">Software Engineer</div>
             <div class="client-row">
               <span class="client-label">Client</span>
               <span class="client-name">Nationwide Insurance, USA</span>
             </div>
             <ul class="blist">
-              <li>Implemented JWT-based authentication and role-based access control (RBAC) across the
-                application stack, strengthening security compliance with banking regulations and internal
-                IT policies.</li>
               <li>Collaborated with QA teams to write unit and integration tests using JUnit and Jasmine,
                 achieving over 80% code coverage and reducing post-release defect rates in production.</li>
               <li>Participated in Agile sprint ceremonies and contributed to backlog refinement, helping the
                 team maintain consistent delivery velocity and communicate progress to stakeholders.</li>
+              <li>Configured and maintained CI/CD pipelines using Concourse, Harness, and GitHub Actions,
+                automating build, test, and deployment workflows to accelerate release cycles and reduce
+                manual intervention.</li>
             </ul>
           </div>
 
@@ -474,10 +533,10 @@
           <!-- Intellect Design Arena -->
           <div class="job">
             <div style="display:flex; justify-content:space-between; align-items:baseline;">
-              <div class="job-company">Intellect Design Arena</div>
+              <div class="job-company">Intellect Design Arena Ltd</div>
               <div style="font-size:10px; color:#64748b; font-weight:600; white-space:nowrap;">Jun 2021 – Oct 2024</div>
             </div>
-            <div class="job-role">Software Engineer</div>
+            <div class="job-role">Associate Consultant</div>
             <div class="client-row" style="flex-direction:column; align-items:flex-start; gap:5px;">
               <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
                 <span class="client-label">Clients</span>
@@ -520,6 +579,42 @@
           </div>
 
         </div>
+
+        <hr class="job-sep">
+
+        <!-- Research & Publications -->
+        <div class="section" style="margin-bottom:0;">
+          <div class="sec-title">Research &amp; Publications</div>
+
+          <div class="paper-block">
+            <div class="paper-title">Face Mask Detection using YOLO V3-tiny Over CNN with Improved Accuracy</div>
+            <a class="paper-link"
+               href="https://drive.google.com/file/d/1qPzMGBSh18ZqXylESShbua_ukoy2tDAy/view?usp=sharing"
+               target="_blank">
+              &#128196; View Paper
+            </a>
+          </div>
+
+          <div class="paper-block">
+            <div class="paper-title">Hand Gesture Recognition &amp; Cursor Control</div>
+            <a class="paper-link"
+               href="https://drive.google.com/file/d/1yFH0QfE2AF-4tTj2YCgOkNhk1EAqAYB_/view"
+               target="_blank">
+              &#128196; View Paper
+            </a>
+          </div>
+
+          <div class="paper-block">
+            <div class="paper-title">Effective Traffic Management and Accident Intimation using Smart Grids</div>
+            <a class="paper-link"
+               href="https://drive.google.com/file/d/1I8DXFUj-RR-SzE0atYDI-SxqvO9XpvsK/view"
+               target="_blank">
+              &#128196; View Paper
+            </a>
+          </div>
+
+        </div>
+
       </div>
 
       <!-- SIDEBAR – page 2 -->
@@ -528,8 +623,8 @@
         <div class="section">
           <div class="sec-title">Certifications</div>
           <ul class="dlist">
-            <li>Intellect IDC Product Certified</li>
-            <li>Core Banking Implementation</li>
+            <li>Foundations of Project Management <span style="color:#94a3b8; font-size:9.5px;">– Google</span></li>
+            <li>Generative AI for Software Developers <span style="color:#94a3b8; font-size:9.5px;">– IBM</span></li>
           </ul>
         </div>
 
@@ -537,6 +632,9 @@
           <div class="sec-title">Tools &amp; Platforms</div>
           <div class="skill-wrap">
             <span class="skill">IDC Platform</span>
+            <span class="skill">Concourse</span>
+            <span class="skill">Harness</span>
+            <span class="skill">GitHub Actions</span>
             <span class="skill">Postman</span>
             <span class="skill">Maven</span>
             <span class="skill">Jenkins</span>
@@ -564,7 +662,8 @@
           <div class="sec-title">Languages</div>
           <ul class="dlist">
             <li>English – Professional</li>
-            <li>Tamil – Native</li>
+            <li>Hindi – Native</li>
+            <li>Tamil – Professional</li>
           </ul>
         </div>
 
